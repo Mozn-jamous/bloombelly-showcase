@@ -1,23 +1,28 @@
-Copyright (c) 2026 Mozn Jamous. All Rights Reserved.
+Copyright (c) 2026 Mozn Jamous & Shahd Bureghsh. All Rights Reserved.
 
 This repository contains documentation, screenshots, architecture diagrams,
-designs, and other materials describing the BloomBelly project ("the Work").
+designs, and other materials describing the BloomBelly project ("the Work"),
+which has been submitted as a graduation thesis to the Informatics Engineering
+College at Al-Sham Private University (ASPU), Damascus, Syria, in 2026,
+under the academic supervision of Dr. Afaf Al-Shalabi and Eng. Rahaf Abdul Qader.
 
-The Work is the proprietary and confidential property of Mozn Jamous.
+The Work is the joint proprietary and confidential property of Mozn Jamous
+and Shahd Bureghsh.
 
 UNAUTHORIZED USE PROHIBITED
 ---------------------------
 
 The following are STRICTLY PROHIBITED without explicit prior written
-permission from the copyright holder:
+permission from both copyright holders:
 
   - Copying, reproducing, or duplicating any portion of the Work
   - Distributing, publishing, or sharing the Work in any medium
   - Modifying, adapting, or creating derivative works
   - Using the Work, in whole or in part, in any product (commercial or not)
   - Reverse engineering, decompiling, or extracting any underlying ideas,
-    methods, or designs from the Work
+    methods, designs, or AI model weights from the Work
   - Public display or performance of the Work
+  - Submitting any portion of the Work as one's own academic submission
 
 EVALUATION USE ONLY
 -------------------
@@ -32,14 +37,13 @@ NO WARRANTY
 -----------
 
 THE WORK IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE, AND NONINFRINGEMENT.
+IMPLIED.
 
 CONTACT
 -------
 
 For licensing inquiries, partnership discussions, or to request access to
-the source code under NDA, please contact:
+the source code or thesis materials:
 
     Mozn Jamous
     Email: asaierafi@clinlab.ai

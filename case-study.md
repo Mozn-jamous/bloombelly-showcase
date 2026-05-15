@@ -2,76 +2,100 @@
 
 ## Context
 
-In Arabic-speaking countries, mothers face a digital health information gap that is rarely addressed by mainstream maternal-child health apps. Most popular apps (Flo, Ovia, BabyCenter) are designed for English-speaking, well-connected users in the Global North. Translations, when they exist, are mechanical — they don't account for the right-to-left layout, cultural references, or healthcare context of MENA mothers.
+This project was developed as our **graduation thesis** at the **Informatics Engineering College, Al-Sham Private University (ASPU)** in Damascus, Syria, for the academic year 1447 AH / 2026 CE.
 
-Meanwhile, maternal and child mortality in the region remains a serious public health concern. The WHO has highlighted that **timely access to evidence-based information** is one of the most cost-effective interventions to improve outcomes.
+It was authored jointly by **Mozn Jamous** and **Shahd Bureghsh**, under the supervision of **Dr. Afaf Al-Shalabi** and **Eng. Rahaf Abdul Qader**.
 
-## The Challenge
+The work addresses a gap we observed firsthand in our community: Arabic-speaking pregnant women lack a single digital companion that respects their language, organizes their care, and supports their families through pregnancy and early childhood.
 
-How do you build a digital companion that:
+## The Problem
 
-1. Speaks fluent Arabic — not just text, but the *culture* of care?
-2. Works reliably in regions with intermittent connectivity?
-3. Stays safe when an AI is answering medical questions?
-4. Combines pregnancy, postpartum, and child care into one experience?
-5. Earns trust as a credible health source, not just another tracking app?
+Through stakeholder interviews with OB/GYNs, pediatricians, nutritionists, and dozens of mothers, we identified five recurring pain points:
+
+1. **Information overload and contradiction.** A typical question — "is this food safe in week 24?" — produces a dozen conflicting answers from different forums and translated articles.
+
+2. **Disorganized clinical follow-up.** Test results and appointments live in WhatsApp screenshots, paper notebooks, and memory. Important findings get lost between visits.
+
+3. **The double burden of mothers with a young child.** They juggle pregnancy with active childcare (vaccinations, sleep tracking, growth monitoring) — and no single tool helps them do both.
+
+4. **Father exclusion.** Many fathers want to engage but don't know how. Existing apps cater to the mother alone, leaving the partner without a clear role.
+
+5. **Generic, decontextualized advice.** Recommendations don't adapt to the mother's specific stage, conditions (gestational diabetes, anemia), or cultural context.
 
 ## The Approach
 
-I designed BloomBelly around five core principles:
+### Doctor-administered access
 
-### 1. Arabic-first design
+We chose a **Manager (doctor) role** to create user accounts rather than self-registration. This adds clinical oversight, ensures verified users, and aligns with how care is delivered in our region. It also enables a **wallet-based paid-services model** managed offline by the clinic — no in-app payment gateway needed in V1.
 
-Five Arabic fonts (Amiri, Cairo, Mirza, Harmattan, Gulzar) bundled in-app, chosen for their distinct moods — Amiri for body text, Cairo for headings, Mirza for warm callouts. The entire UI is built RTL-first; the English version is the translation, not the other way around.
+### MVVM on Flutter, Flask on the server
 
-### 2. Evidence-based content
+The mobile client uses **MVVM with Provider** for clean separation between view, view-model, and model. The backend is **Python Flask** — a deliberate choice because it lets us host three different AI systems (Gemini, a LoRA fine-tuned transformer, and a Random Forest classifier) behind one unified API.
 
-Every tracker is anchored in an external guideline:
-- Kick counter → ACOG's "Count the Kicks" methodology (10 in 2 hours)
-- Vaccination schedule → WHO Expanded Programme on Immunization
-- Growth curves → WHO 2006 Child Growth Standards (LMS z-scores)
-- Risk screening (planned) → EPDS for postnatal depression
+### Three AI components, each for its job
 
-### 3. Clean, layered architecture
+We didn't try to use one model for everything. Instead:
 
-A Strangler Fig refactor is currently underway, migrating from a FlutterFlow-origin codebase to **Clean Architecture + Riverpod + drift + freezed**. Each feature is a self-contained module with Domain, Data, and Presentation layers — independently testable and replaceable.
+- **Google Gemini** for medical image analysis (lab results, ultrasounds) because its multimodal vision is strong and the API economics work for a graduation-scale project.
+- **LoRA fine-tuning** of a transformer model for the medical chatbot — small enough to serve, specialized enough to answer pregnancy questions credibly with citations.
+- **Random Forest classifier** for nutrition evaluation — interpretable, fast, and easy to retrain when guidelines update.
 
-### 4. Local-first sync
+### Evidence-based content
 
-drift (SQLite) is the source of truth on the device. Supabase serves as a syncing backend, not a hard dependency. The app is fully functional offline; writes queue until connectivity returns.
+Every clinical claim in the app links to a research foundation:
 
-### 5. AI safety as a first-class concern
+| Feature | Reference |
+|---|---|
+| Kick counter | ACOG "Count the Kicks" — 10 movements in 2 hours |
+| Reduced movement awareness | Studies in *PLOS Global Public Health* & *BJOG* |
+| Sleep recommendations | American Academy of Sleep Medicine |
+| Vaccination schedule | Syrian Ministry of Health |
+| Maternal nutrition | WHO guidelines on pregnancy nutrition |
+| Father involvement design | *Frontiers in Public Health* research |
 
-The Gemini integration is wrapped in a 4-stage safety pipeline: pre-filter for PII and blocked topics, emergency triage for red-flag keywords, system-prompt anchoring during the model call, and post-filter that enforces citations and medical disclaimers.
+The bibliography in our thesis lists 17+ peer-reviewed sources.
+
+### Arabic-first design
+
+The UI, content, and chatbot are designed for Arabic from day one. The chatbot accepts Arabic input, even though responses are rendered in English in this version (a future iteration will switch to native Arabic responses).
 
 ## Trade-offs
 
 | Decision | Trade-off |
 |---|---|
-| Local-first DB | More complexity in conflict resolution vs. cloud-only |
-| Bundling 5 Arabic fonts | Bigger app size (+8 MB) vs. typographic quality |
-| Strangler Fig refactor | Slower than full rewrite vs. zero downtime during migration |
-| Riverpod over BLoC | Some boilerplate vs. less codegen friction |
-| Gemini over OpenAI | Lower cost & better Arabic vs. ecosystem maturity |
+| Flask backend instead of Supabase Edge Functions | More infrastructure to host, but full control over AI orchestration |
+| Doctor-administered accounts | Slower onboarding, but adds clinical credibility & prevents abuse |
+| Wallet system instead of payment gateway | Limits to clinic distribution in V1, but bypasses regional payment complexity |
+| LoRA fine-tuning over full retraining | Less model "depth", but vastly cheaper to train and serve |
+| English chatbot output | Easier model training, but suboptimal UX — to be fixed in V2 |
+| Provider over Riverpod / BLoC | Lower ceiling for complex state, but enough for our use cases |
 
-## Outcome (current state)
+## Outcome
 
-- Functional MVP with 30+ pages and ~40,000 lines of Dart
-- Friends-and-family pilot underway
-- Phase 1 of the refactor in execution (Kick Counter as reference feature)
-- Whitepaper and Pitch deck in preparation for grant submissions
+- **Functional MVP** with all 4 user roles, AI image analysis, fine-tuned chatbot, nutrition classifier, kick counter, wallet system, and child-care features
+- **50+ test cases** documented (both white-box and black-box)
+- **Full system documentation** including ERD, class diagrams, sequence diagrams, use cases, and architectural decision records — submitted as part of the graduation thesis
+- **Stakeholder validation** through interviews with mothers, fathers, OB/GYNs, pediatricians, and nutritionists
+- **Pilot use** by friends and family during development
 
-## What I Learned
+## What We Learned
 
-- **FlutterFlow accelerates start; it slows down growth.** The same boilerplate that gave the project its first prototype is now the biggest source of friction in the refactor.
-- **AI safety in Arabic is under-researched.** English content has multiple medical-safety datasets; Arabic content is sparser. Some safety rules had to be designed from scratch.
-- **The pilot teaches more than the prototype.** Even with a handful of users, real feedback exposed assumptions I would have defended for months in isolation.
+- **AI orchestration is its own engineering problem.** Combining Gemini + LoRA + Random Forest meant building safety layers, fallbacks, and cost controls that aren't taught in a single ML course.
+- **Doctor-administered accounts changed the entire UX.** We initially designed self-registration, then realized the clinic distribution model gave us trust, oversight, and a clean monetization path simultaneously.
+- **Stakeholder interviews exposed assumptions we didn't know we had.** Fathers don't want to be passive observers — they want a clear role. Mothers with a child don't want a second app for the older one; they want everything in one place.
+- **Evidence-based design is a feature.** Linking every recommendation to a peer-reviewed source built credibility with our supervisors and gave us a defensible position when reviewers asked "why do you say this?"
+- **Co-authorship demands tight coordination.** Working with [@shahd-bureghsh] taught us the value of daily syncs, clear role splits, and shared JIRA boards.
 
 ## What's Next
 
-- Complete Phase 1 of refactor (Kick Counter on Clean Architecture)
-- Implement Risk Screening feature (EPDS, PPD, gestational-diabetes red flags)
-- Wire WHO Growth Standards into the child growth charts
-- Add offline-mode integration tests
-- Submit to Grand Challenges Canada (Saving Lives at Birth)
-- Public beta launch on Play Store + App Store
+- **Public beta release** on App Store and Play Store
+- **Native Arabic chatbot output** (currently English-only)
+- **Contraction timer** and **breastfeeding tracker** for V2
+- **Direct integration** with clinic appointment systems
+- **Anonymized data export** for research partners (opt-in)
+- **Submission to grants** targeting maternal/child health in MENA: Grand Challenges Canada, UNICEF Innovation Fund, Misk Foundation, Plug and Play Health
+- **Academic publication** of the LoRA fine-tuning approach for Arabic medical Q&A
+
+---
+
+*Submitted to Al-Sham Private University, College of Informatics Engineering, 2026.*

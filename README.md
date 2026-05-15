@@ -2,156 +2,237 @@
 
 # 🌸 BloomBelly
 
-### AI-assisted, Arabic-first maternal & child health companion
+### AI-assisted, Arabic-first maternal & child health platform
 
-*Bridging the digital health gap in Arabic-speaking regions — from the first heartbeat to the first step.*
+*A unified companion that organizes prenatal appointments, analyzes medical tests with AI, tracks fetal movements, evaluates nutrition, and includes a dedicated section for fathers to support their spouses throughout pregnancy.*
 
 [![License: Proprietary](https://img.shields.io/badge/License-Proprietary-red.svg)](LICENSE)
-[![Status: Active](https://img.shields.io/badge/Status-In%20Refactor-orange.svg)]()
-[![Platform: Flutter](https://img.shields.io/badge/Platform-Flutter-02569B?logo=flutter&logoColor=white)]()
-[![Backend: Supabase](https://img.shields.io/badge/Backend-Supabase-3ECF8E?logo=supabase&logoColor=white)]()
-[![AI: Gemini](https://img.shields.io/badge/AI-Google%20Gemini-4285F4?logo=google&logoColor=white)]()
+[![Status: Graduation Project](https://img.shields.io/badge/Status-Graduation%20Project-blueviolet.svg)]()
+[![University: ASPU](https://img.shields.io/badge/University-Al--Sham%20Private%20University-1e3a8a.svg)]()
+[![Frontend: Flutter](https://img.shields.io/badge/Frontend-Flutter-02569B?logo=flutter&logoColor=white)]()
+[![Backend: Flask](https://img.shields.io/badge/Backend-Python%20Flask-000000?logo=flask&logoColor=white)]()
+[![AI: Gemini + LoRA](https://img.shields.io/badge/AI-Gemini%20%2B%20LoRA-4285F4?logo=google&logoColor=white)]()
+[![DB: Supabase](https://img.shields.io/badge/DB-Supabase-3ECF8E?logo=supabase&logoColor=white)]()
 
 </div>
 
 ---
 
 > [!NOTE]
-> **This is a showcase repository.** The source code is private and proprietary. This repository contains documentation, screenshots, architecture diagrams, and demo links to illustrate the project. For inquiries about partnerships, licensing, or technical details, please contact me directly.
+> **This is a showcase repository.** The source code is private. This repository contains documentation, screenshots, architecture diagrams, and design references for our graduation project at **Al-Sham Private University (ASPU)** — Informatics Engineering College, 2026.
+
+---
+
+## 🎓 Academic Context
+
+**Graduation project — Bachelor of Informatics Engineering**
+
+- **University:** Al-Sham Private University (ASPU), Damascus, Syria
+- **College:** Informatics Engineering
+- **Academic Year:** 1447 AH / 2026 CE
+
+**Project Team:**
+- 🧑‍💻 **Mozn Jamous** — [@Mozn-jamous](https://github.com/Mozn-jamous)
+- 🧑‍💻 **Shahd Bureghsh** — Co-founder & co-developer
+
+**Supervisors:**
+- 👩‍🏫 **Dr. Afaf Al-Shalabi** — Principal Supervisor
+- 👩‍🏫 **Eng. Rahaf Abdul Qader** — Technical Co-supervisor
 
 ---
 
 ## 📖 The Problem
 
-Maternal and child mortality in Arabic-speaking countries remains among the highest in the world. Most digital health solutions are English-first, generic, and disconnected from the cultural and linguistic context of MENA mothers. Rural and underserved regions lack offline-capable, evidence-based companions for the journey from pregnancy to early childhood.
+Pregnant women face overlapping daily challenges that current digital health apps don't address holistically — especially for Arabic-speaking users:
 
-**Key gaps BloomBelly addresses:**
-- Arabic-language clinical content with proper RTL design
-- Offline-first architecture for low-bandwidth regions
-- AI-assisted answers grounded in WHO/ACOG/CDC guidelines
-- Continuous care from pregnancy through early childhood in **one** app
+- **Fragmented information** — pregnant women jump across forums, search engines, and translated apps to find answers that often contradict each other
+- **Disorganized appointments** — prenatal tests, lab results, and follow-ups live in paper notebooks or phone screenshots
+- **Limited father involvement** — fathers want to help but lack a structured way to follow the pregnancy and offer real support
+- **Generic nutrition advice** — recommendations rarely adapt to the mother's specific pregnancy stage or conditions like gestational diabetes or anemia
+- **Unclear fetal movement tracking** — no localized, evidence-based guidance for when reduced movement is a red flag
+- **The mother who also has a young child** carries a double load that no single app helps her manage
 
 ---
 
 ## ✨ The Solution
 
-BloomBelly is a comprehensive Flutter application that follows a mother's journey from pregnancy planning through her child's early years, combining:
+**BloomBelly** is a unified Flutter platform that brings together:
 
-- 🤰 **Pregnancy tracking** — journal, kick counter, weight, symptoms, growth
-- 👶 **Child care** — multi-child profiles, vaccinations, sleep, nutrition, growth charts
-- 🩺 **Health monitoring** — lab results tracker, first-aid guide, symptom checker
-- 🤖 **AI companion** — Arabic-native medical Q&A with safety guardrails
-- 📊 **Visual insights** — interactive charts powered by `fl_chart`
-- 🔐 **Privacy by design** — Row-Level Security at the database layer
+- 🤰 **Pregnancy tracking** — week-by-week development with stage-specific health and nutrition guidance
+- 🔬 **AI-powered medical test analysis** — upload lab results or ultrasound images and receive simplified, accessible explanations
+- 👣 **Evidence-based fetal movement tracking** — kick counter aligned with **ACOG's "Count the Kicks"** methodology
+- 🥗 **Smart nutrition evaluation** — a Random Forest classifier evaluates meals against pregnancy-stage requirements
+- 🤖 **Fine-tuned medical chatbot** — Arabic-aware Q&A trained on maternal/child health content via LoRA
+- 👶 **Child care for second-time mothers** — vaccination schedules (based on **Syrian Ministry of Health** data), sleep quality analysis, WHO-aligned growth tracking
+- 👨 **Dedicated father section** — simplified pregnancy stages, supportive guidance, first-aid awareness
+- 🚨 **First aid guide** — emergency protocols for bleeding, preterm labor signs, fetal movement concerns
+- 💳 **In-app wallet & paid services** — premium features (advanced chatbot, child-care services) managed via a doctor-administered wallet system
 
 ---
 
-## 🎯 Key Features
+## 🧬 Evidence-Based Foundation
+
+Every feature is grounded in peer-reviewed research:
+
+| Feature | Scientific Basis |
+|---|---|
+| Kick counter | ACOG "Count the Kicks" (10 movements in 2 hours) |
+| Risk awareness | Studies on reduced fetal movements & perinatal outcomes (PLOS, BJOG) |
+| Nutrition guidance | WHO maternal nutrition guidelines |
+| Sleep tracking | American Academy of Sleep Medicine pediatric recommendations |
+| Vaccination schedule | Syrian Ministry of Health immunization protocols |
+| Self-monitoring | PLOS ONE studies on digital health adherence |
+| Father involvement | Frontiers in Public Health research on partner support |
+
+Full bibliography available on request.
+
+---
+
+## 👥 User Roles
+
+The system supports **4 distinct user types**, with **doctor-administered account creation** to ensure clinical oversight:
 
 <table>
 <tr>
-<td width="50%">
-
-### Pregnancy Module
-- 📓 Daily journal with photo attachments
-- 👣 Kick counter with ACOG-aligned analysis
-- ⚖️ Weight tracking with healthy-range alerts
-- 🩹 Symptom logger with red-flag detection
-
-</td>
-<td width="50%">
-
-### Child Module
-- 🧒 Multiple child profiles
-- 💉 Vaccination schedule (WHO-aligned)
-- 😴 Sleep pattern tracking
-- 🍼 Nutrition log
-- 📈 Growth curves (WHO standards)
-
-</td>
+<th>Role</th>
+<th>Primary Responsibilities</th>
 </tr>
 <tr>
-<td width="50%">
-
-### AI Assistant
-- 💬 Conversational interface in Arabic
-- 🛡️ Medical safety layer (in development)
-- 📚 Cited responses (WHO, Mayo Clinic)
-- 🚨 Emergency-keyword triage
-
-</td>
-<td width="50%">
-
-### Platform
-- 🌐 Bilingual (Arabic / English)
-- 📴 Offline-first (in development)
-- 🔄 Real-time sync via Supabase
-- 🍎 Sign in with Apple
-
-</td>
+<td><b>🩺 Manager (Doctor/Admin)</b></td>
+<td>Creates user accounts, manages wallet balances, activates/deactivates accounts, oversees the system</td>
+</tr>
+<tr>
+<td><b>🤰 First-time Pregnant Mother</b></td>
+<td>Weekly pregnancy tracking, kick counter, test uploads, nutrition logging, AI chatbot, first-aid access</td>
+</tr>
+<tr>
+<td><b>👩‍👧 Pregnant Mother with a Child</b></td>
+<td>All first-time features + child profile management, vaccination tracking, sleep analysis, WHO growth charts</td>
+</tr>
+<tr>
+<td><b>👨 Father (Visitor)</b></td>
+<td>Simplified pregnancy view, support guidance, first-aid awareness, dedicated chatbot for father questions</td>
 </tr>
 </table>
 
 ---
 
-## 🏗️ Architecture
+## 🏗️ Architecture (MVVM)
 
 ```mermaid
 graph TB
-    subgraph "Client (Flutter)"
-        UI[Presentation Layer<br/>Pages + Widgets]
-        VM[State Management<br/>Riverpod]
-        DOM[Domain Layer<br/>Use Cases + Entities]
-        DATA[Data Layer<br/>Repositories]
-        LOCAL[(Local Storage<br/>drift)]
+    subgraph Client["Flutter Client (MVVM)"]
+        V[View — Pages & Widgets]
+        VM[ViewModel — Provider]
+        M[Model — Domain]
     end
 
-    subgraph "Backend (Supabase)"
-        AUTH[Auth Service]
+    subgraph Backend["Python Flask Backend"]
+        API[REST API Layer]
+        AI_ORCH[AI Orchestrator]
+        AUTH_M[Auth Middleware - JWT]
+    end
+
+    subgraph AI["AI Layer"]
+        GEMINI[Google Gemini<br/>Medical Image Analysis]
+        LORA[Fine-tuned Chatbot<br/>LoRA + Transformers]
+        RF[Random Forest<br/>Nutrition Classifier]
+    end
+
+    subgraph Data["Data Layer (Supabase)"]
+        AUTH[Supabase Auth]
         DB[(PostgreSQL<br/>+ RLS)]
         STORAGE[File Storage]
-        RT[Realtime]
-        FN[Edge Functions]
+        RT[Realtime Sync]
     end
 
-    subgraph "AI Layer"
-        GEMINI[Google Gemini API]
-        SAFETY[Medical Safety Layer]
-    end
-
-    UI --> VM
-    VM --> DOM
-    DOM --> DATA
-    DATA --> LOCAL
-    DATA -->|sync| AUTH
-    DATA -->|CRUD| DB
-    DATA -->|files| STORAGE
-    DATA -->|live updates| RT
-    DOM -->|complex logic| FN
-    DOM -->|queries| SAFETY
-    SAFETY --> GEMINI
+    V --> VM
+    VM --> M
+    M -->|REST| API
+    API --> AUTH_M
+    AUTH_M --> AI_ORCH
+    AI_ORCH --> GEMINI
+    AI_ORCH --> LORA
+    AI_ORCH --> RF
+    API --> AUTH
+    API --> DB
+    API --> STORAGE
+    API --> RT
+    RT -.->|live updates| VM
 ```
 
-See [docs/architecture.md](docs/architecture.md) for detailed architectural decisions.
+See [docs/architecture.md](docs/architecture.md) for full system breakdown, data flow, and AI pipeline.
 
 ---
 
 ## 🧰 Tech Stack
 
+### Mobile (Frontend)
 | Layer | Technology |
 |---|---|
-| Mobile Framework | Flutter 3.24+ / Dart 3.5+ |
-| State Management | Riverpod 2.x |
-| Local Database | drift (SQLite, type-safe) |
-| Routing | go_router 16 |
-| Backend | Supabase (Auth + Postgres + Storage + Realtime) |
-| AI | Google Generative AI (Gemini) |
-| Charts | fl_chart |
-| Auth | Email + Sign in with Apple |
-| Internationalization | flutter_localizations (Arabic + English) |
-| Typography | 5 Arabic fonts (Amiri, Cairo, Mirza, Harmattan, Gulzar) |
+| Framework | Flutter / Dart |
+| Architecture | MVVM (Model-View-ViewModel) |
+| State Management | Provider |
+| Routing | go_router |
+| HTTP | http + REST clients |
+| Local Storage | shared_preferences |
+| Realtime | supabase_flutter |
 
-Full breakdown: [docs/tech-stack.md](docs/tech-stack.md)
+### Backend (Python)
+| Layer | Technology |
+|---|---|
+| Framework | **Flask** |
+| Language | Python 3.x |
+| Auth | JWT (JSON Web Tokens) |
+| API Style | RESTful |
+
+### AI / ML Stack
+| Component | Technology |
+|---|---|
+| Medical image analysis | **Google Gemini API** |
+| Chatbot core | **Fine-tuned transformer** (Hugging Face) |
+| Tuning technique | **LoRA (Low-Rank Adaptation)** |
+| ML framework | **PyTorch** |
+| Nutrition classifier | **Random Forest** (scikit-learn) |
+| Data processing | **Pandas + NumPy** |
+
+### Database & Cloud
+| Layer | Technology |
+|---|---|
+| Database | **Supabase** (PostgreSQL) |
+| Auth provider | Supabase Auth + bcrypt hashing |
+| Storage | Supabase Storage |
+| Realtime | Supabase Realtime channels |
+
+### DevOps
+| Tool | Purpose |
+|---|---|
+| GitHub | Version control |
+| Jira | Sprint planning & task tracking |
+| Postman | API testing |
+| Figma | UI/UX design |
+| Telegram | Team coordination |
+
+---
+
+## 🎨 Design
+
+Full design system, screen flows, and interactive prototype:
+
+🔗 **[BloomBelly Figma — design & prototype](https://www.figma.com/design/dxpDoQBHXpv6tiysUVUpSA/BloomBelly?node-id=1-2&p=f&t=9jT9mGbWAKJmOGOh-0)**
+
+---
+
+## 🚀 Demo
+
+> Demo assets coming as the project moves to public beta.
+
+- 🎨 **Figma prototype:** [Open in Figma](https://www.figma.com/design/dxpDoQBHXpv6tiysUVUpSA/BloomBelly?node-id=1-2&p=f&t=9jT9mGbWAKJmOGOh-0)
+- 🌐 Web demo: *coming soon*
+- 📱 APK download: *coming soon*
+- 🎥 Video walkthrough: *coming soon*
+
+In the meantime, see [screenshots/](screenshots/) for visual previews.
 
 ---
 
@@ -159,68 +240,51 @@ Full breakdown: [docs/tech-stack.md](docs/tech-stack.md)
 
 | Metric | Value |
 |---|---|
-| Source files | 144 Dart files |
-| Lines of code | ~40,000 |
+| User roles | 4 (Manager, First-time mom, Mom-with-child, Father) |
+| Core features | 12+ |
 | Pages / screens | 30+ |
-| Supported languages | 2 (Arabic, English) |
-| Database tables | 12+ with Row Level Security |
+| Bilingual support | Arabic (RTL) + English |
+| Scientific references | 17+ peer-reviewed studies |
+| Test cases documented | 50+ (white-box + black-box) |
 
 ---
 
-## 🚀 Demo
+## 🛡️ Privacy & Compliance
 
-> *App demo links will be added here once the public beta is ready.*
-
-- 🎨 **Figma — full design & prototype:** [BloomBelly Figma](https://www.figma.com/design/dxpDoQBHXpv6tiysUVUpSA/BloomBelly?node-id=1-2&p=f&t=9jT9mGbWAKJmOGOh-0)
-- 🌐 Web demo: *coming soon*
-- 📱 APK download: *coming soon*
-- 🎥 Video walkthrough: *coming soon*
-
-In the meantime, see [screenshots/](screenshots/) for visual previews and the Figma link above for the full design system and screen flows.
-
----
-
-## 📐 Design Principles
-
-1. **Arabic-first, not Arabic-translated** — UI, content, and AI tuned for Arabic-speaking users from day one.
-2. **Evidence-based** — every feature tied to a clinical guideline (WHO, ACOG, CDC).
-3. **Offline-resilient** — works in low-bandwidth regions; syncs when online.
-4. **Privacy-respecting** — sensitive health data encrypted, RLS-enforced, minimal collection.
-5. **Continuum of care** — pregnancy through early childhood in one experience.
-6. **Clinically safe** — clear medical disclaimers, AI safety layer, emergency triage.
-
----
-
-## 🎓 Background & Motivation
-
-This project is being developed as part of a broader initiative to make evidence-based maternal and child health information accessible to Arabic-speaking mothers, especially in underserved regions. The goal is to publish findings, share anonymized data with researchers (opt-in), and contribute to the digital health ecosystem in MENA.
-
-Read the full [case study](case-study.md) for the problem framing, methodology, and theory of change.
+- **JWT authentication** on every protected endpoint
+- **bcrypt password hashing** — never stored as plaintext
+- **Row Level Security** on Supabase tables
+- **Doctor-administered account model** — no anonymous signups
+- **Clear medical disclaimers** on all AI-generated content
+- **PII redaction** on logs
 
 ---
 
 ## 🗺️ Roadmap
 
-- [x] V1: Pregnancy + child tracking + AI chat (current)
-- [ ] V1.5: Clean Architecture refactor (Phase 1 in progress)
-- [ ] V2: Risk screening (EPDS, PPD) + offline-first
-- [ ] V2.5: WHO Growth Standards integration
-- [ ] V3: Anonymized data export for research
-- [ ] V3.5: Public beta + App Store + Play Store
+- [x] V1: MVP with all 4 user roles & core features
+- [x] V1.1: AI medical image analysis (Gemini)
+- [x] V1.2: Fine-tuned chatbot (LoRA)
+- [x] V1.3: Nutrition classifier (Random Forest)
+- [ ] V2: Public beta with App Store + Play Store release
+- [ ] V2.1: Contraction timer & breastfeeding tracker
+- [ ] V2.2: Direct clinic integration
+- [ ] V2.3: Anonymized data export for research
 
 ---
 
-## 👤 My Role
+## 👥 Team Contributions
 
-**Solo founder, designer, and developer.**
+This project was developed jointly by **Mozn Jamous** and **Shahd Bureghsh** as our graduation project at ASPU, with shared responsibilities across:
 
-I designed and built BloomBelly from initial concept through to the current MVP. Responsibilities include:
-- Product strategy, user research, and feature design
-- Full Flutter implementation (UI, state, local storage, sync)
-- Supabase backend architecture (schemas, RLS, edge functions)
-- AI integration (Gemini) with medical safety considerations
-- Bilingual content strategy and typography
-- Long-term technical roadmap and refactoring plan
+- Stakeholder interviews (mothers, fathers, OB/GYN, pediatricians, nutritionists)
+- System design (MVVM, data modeling, ERD)
+- Flutter implementation (UI, state, navigation)
+- Flask backend & API design
+- AI integration (Gemini, LoRA, Random Forest)
+- Supabase schema & RLS policies
+- Test cases (black-box & white-box) — see project documentation
+- Final thesis and defense
 
 ---
 
@@ -230,24 +294,24 @@ I designed and built BloomBelly from initial concept through to the current MVP.
 - **GitHub:** [@Mozn-jamous](https://github.com/Mozn-jamous)
 - **LinkedIn:** [Mozn Jamous](https://www.linkedin.com/in/mozn-jamous)
 
-For partnership opportunities, grant collaborations, or technical inquiries, please reach out directly. I am open to discussions with:
+For partnership opportunities, grant collaborations, accelerator interest, or technical inquiries, please reach out directly. We are particularly interested in:
 - Maternal/child health organizations and NGOs
-- Digital health accelerators and incubators
-- Research institutions interested in MENA health data
+- Digital health accelerators targeting MENA
+- Research institutions working on Arabic-language clinical content
 - Investors aligned with social-impact health tech
 
 ---
 
 ## 📄 License
 
-This repository and all its contents (documentation, designs, diagrams, screenshots) are © 2026 Mozn Jamous. **All rights reserved.** See [LICENSE](LICENSE).
+This repository and all its contents are © 2026 Mozn Jamous & Shahd Bureghsh. **All rights reserved.** See [LICENSE](LICENSE).
 
-The source code is not publicly available. Selected reviewers may be granted read-only access under NDA.
+The source code is private. The work has been formally submitted as a graduation thesis to Al-Sham Private University and is under the academic supervision of Dr. Afaf Al-Shalabi and Eng. Rahaf Abdul Qader.
 
 ---
 
 <div align="center">
 
-*Built with care, in Damascus.*
+*Built with care, in Damascus.* 🇸🇾
 
 </div>

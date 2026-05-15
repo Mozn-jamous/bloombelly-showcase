@@ -1,76 +1,96 @@
 # BloomBelly — Tech Stack
 
-A detailed breakdown of every technology choice and its rationale.
+The full technical breakdown of the BloomBelly graduation project.
 
-## Client (Mobile App)
-
-| Concern | Choice | Why |
-|---|---|---|
-| Framework | Flutter 3.24+ | Single codebase iOS/Android/Web; mature ecosystem; great Arabic typography support |
-| Language | Dart 3.5+ | Null-safety, records, patterns, sealed classes |
-| State Management | Riverpod 2.x | Type-safe, testable, code-gen support, no BuildContext dependency |
-| Routing | go_router 16 | Declarative, deep-link friendly, web-aware |
-| Local Database | drift | Type-safe SQL, reactive streams, code-gen, free + open source |
-| Code Generation | freezed + json_serializable + drift_dev + riverpod_generator | Immutable data classes, sealed unions, zero-boilerplate |
-| Forms / Validation | flutter_hooks (selectively) | Reduces stateful boilerplate |
-| Charts | fl_chart | Native, customizable, performant |
-| Caching | cached_network_image | Avatar/photo caching |
-| Date / i18n | intl 0.20 | Arabic calendar/format support |
-| Secure Storage | flutter_secure_storage | Token persistence |
-| Linting | very_good_analysis | Strict, industry-standard ruleset |
-
-## Backend (Supabase)
+## Mobile Client (Flutter)
 
 | Concern | Choice | Why |
 |---|---|---|
-| Database | Supabase Postgres | RLS, JSONB, full SQL, free tier sufficient for pilot |
-| Auth | Supabase Auth + Sign in with Apple | Email + Apple coverage; Apple required for App Store |
-| Storage | Supabase Storage | S3-compatible, integrated with RLS |
-| Realtime | Supabase Realtime | Streamed updates for cross-device sync |
-| Edge Functions | Deno-based (Supabase) | Complex logic outside the client (analytics, AI orchestration) |
-| Security | Row Level Security | Every row scoped to `auth.uid()` — enforced at DB layer |
-| Migrations | Supabase CLI | Versioned, reproducible schema changes |
+| Framework | **Flutter** | Single codebase iOS/Android, strong Arabic typography support, mature ecosystem |
+| Language | **Dart** | Null-safety, async/await, records |
+| Architecture | **MVVM** | Clean separation of View / ViewModel / Model |
+| State Management | **Provider** | Lightweight, reactive, well-supported |
+| Routing | **go_router** | Declarative, web-aware, deep-link friendly |
+| HTTP | **http** + custom REST clients | Talks to our Flask backend |
+| Image handling | **cached_network_image**, **image_picker** | Caching + camera/gallery uploads |
+| Charts | **fl_chart** | Growth curves, kick statistics |
+| Realtime | **supabase_flutter** | Live wallet balance, multi-device sync |
+| Auth storage | **flutter_secure_storage** | Token persistence |
 
-## AI Layer
+## Backend (Python Flask)
 
 | Concern | Choice | Why |
 |---|---|---|
-| LLM Provider | Google Gemini (google_generative_ai) | Strong Arabic, generous free tier, cost-effective |
-| Safety | Custom 4-stage pipeline | Pre-filter + triage + system prompt + post-filter |
-| Prompt Engineering | Hand-tuned + tested vs. seed cases | Maternal/child scope, citations, disclaimers |
+| Framework | **Flask** | Lightweight, ideal for AI orchestration |
+| Language | **Python 3.x** | Native ecosystem for ML/AI libraries |
+| Auth | **JWT (JSON Web Tokens)** | Stateless, easy to scale |
+| Password hashing | **bcrypt** | Industry standard |
+| API style | **RESTful** | Predictable, well-understood |
+
+## AI / ML Stack
+
+| Component | Technology | Purpose |
+|---|---|---|
+| **Medical image analysis** | Google Gemini API | Analyzes lab results, ultrasounds, prenatal images |
+| **Conversational AI** | Fine-tuned transformer (Hugging Face) | Pregnancy/childcare Q&A chatbot |
+| **Tuning technique** | LoRA (Low-Rank Adaptation) | Efficient specialization of base model |
+| **ML framework** | PyTorch | Model loading and inference |
+| **Nutrition classifier** | Random Forest (scikit-learn) | Evaluates meal suitability per pregnancy stage |
+| **Data processing** | Pandas + NumPy | Feature engineering and validation |
+
+### Why this AI mix?
+
+We deliberately did **not** use one model for everything:
+
+- **Gemini** is multimodal and handles images well — best for medical scans.
+- **LoRA-tuned transformer** is cheap to train, lightweight to serve, and gives the chatbot domain depth.
+- **Random Forest** is interpretable, deterministic, and easy to retrain — perfect for the nutrition feature where rules matter.
+
+## Database & Cloud
+
+| Layer | Technology | Notes |
+|---|---|---|
+| Database | **Supabase Postgres** | Free tier sufficient for pilot; supports RLS |
+| Auth | **Supabase Auth** | Email-based; integrated with our doctor-administered flow |
+| Storage | **Supabase Storage** | Medical images, profile photos, signed URLs |
+| Realtime | **Supabase Realtime** | Wallet updates, sync across devices |
+
+Database schema includes 15+ tables: `users`, `manager`, `pregnancies`, `children`, `fetal_moves`, `pregnancy_weight`, `nutrition`, `medical_tests`, `vaccine`, `sleep_test`, `growth`, `wallet_tx`, `transaction`, `care_guides`, `weekly_templates`, `suggestions`, plus a `pregnancy_father_videos` content table.
 
 ## DevOps & Quality
 
-| Concern | Choice | Why |
-|---|---|---|
-| Version Control | Git + GitHub | Standard; GitHub for CI/CD |
-| CI | GitHub Actions | Free for public projects, simple YAML |
-| Tests | flutter_test + mocktail + integration_test | Three layers of coverage |
-| Code formatting | dart format | Standard tooling |
-| Performance | DevTools + Sentry (planned) | Crash + performance monitoring |
+| Tool | Purpose |
+|---|---|
+| **GitHub** | Source control, branching, code review |
+| **Jira** | Sprint planning, backlog, task tracking |
+| **Postman** | API testing & documentation |
+| **Figma** | UI/UX design (full design system + prototype) |
+| **Telegram** | Team coordination & supervisor updates |
+| **VS Code** | Primary IDE |
 
 ## Why NOT these alternatives?
 
 | Alternative | Why we passed |
 |---|---|
-| React Native | Less mature Arabic typography; web parity weaker for this use case |
-| Firebase | Excellent, but pricing scales aggressively; Supabase free tier more generous |
-| OpenAI GPT-4 | Stronger English; weaker Arabic in our tests; higher per-token cost |
-| Hive (NoSQL) | Fine for simple data, awkward for the relational queries we need |
-| Provider | Used originally (via FlutterFlow). Becoming Riverpod in refactor for type safety |
-| Bloc | More boilerplate; Riverpod gives us same testability with less code |
-| Firebase Auth | Migration story to Supabase is complex; staying with Supabase Auth |
+| React Native | Less mature Arabic typography; smaller ecosystem for our use case |
+| Firebase | Strong, but Supabase free tier is more generous and Postgres is more familiar |
+| Firebase ML Kit | Doesn't cover medical-image analysis at the depth Gemini does |
+| OpenAI GPT-4 | Stronger English, but cost and Arabic support weaker for our budget |
+| Hive (local DB) | Not needed in V1; all state lives server-side |
+| Riverpod / BLoC | More boilerplate than Provider for our complexity level |
+| Full transformer retraining | Far too expensive for a student project; LoRA gives us 80% of the benefit at 5% of the cost |
 
 ## Fonts
 
-Five Arabic fonts bundled in-app for distinct moods:
+Arabic fonts bundled in-app:
+- Amiri (body)
+- Cairo (UI)
+- Mirza (callouts)
+- Harmattan (alternate body)
+- Gulzar (decorative)
 
-| Font | Used for | Why |
-|---|---|---|
-| Amiri | Body text | Highly legible, classical proportions |
-| Cairo | Headings, UI labels | Modern, geometric, clear |
-| Mirza | Warm callouts, CTAs | Soft personality |
-| Harmattan | Subtle body alternatives | Compact, balanced |
-| Gulzar | Decorative moments | Distinctive flourish |
+Plus Playwrite US Traditional for English handwritten accents.
 
-Plus the **Playwrite US Traditional** family for English handwritten accents on certain pages.
+## References
+
+The project is grounded in 17+ peer-reviewed sources spanning maternal-child health, digital health interventions, nutrition during pregnancy, fetal movement counting, pediatric sleep, and partner support — all detailed in the thesis bibliography.
