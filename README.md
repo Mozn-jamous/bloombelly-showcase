@@ -169,13 +169,14 @@ Full breakdown: [docs/tech-stack.md](docs/tech-stack.md)
 
 ## 🚀 Demo
 
-> *Demo links will be added here once the public beta is ready.*
+> *App demo links will be added here once the public beta is ready.*
 
+- 🎨 **Figma — full design & prototype:** [BloomBelly Figma](https://www.figma.com/design/dxpDoQBHXpv6tiysUVUpSA/BloomBelly?node-id=1-2&p=f&t=9jT9mGbWAKJmOGOh-0)
 - 🌐 Web demo: *coming soon*
 - 📱 APK download: *coming soon*
 - 🎥 Video walkthrough: *coming soon*
 
-In the meantime, see [screenshots/](screenshots/) for visual previews.
+In the meantime, see [screenshots/](screenshots/) for visual previews and the Figma link above for the full design system and screen flows.
 
 ---
 

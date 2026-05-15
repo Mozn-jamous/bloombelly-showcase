@@ -1,6 +1,13 @@
 # Live Demos & Downloads
 
-> Demo assets will be linked here once the public beta is ready.
+> Some assets are live now; others coming with the public beta.
+
+## Design Prototype
+
+🎨 **Figma — full design system & screen flows:**
+[BloomBelly Figma](https://www.figma.com/design/dxpDoQBHXpv6tiysUVUpSA/BloomBelly?node-id=1-2&p=f&t=9jT9mGbWAKJmOGOh-0)
+
+> Includes the full UI design language, screen-by-screen flows, components, color tokens, typography, and interactive prototype.
 
 ## Web Demo
 
