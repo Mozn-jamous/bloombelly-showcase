@@ -312,7 +312,7 @@ This project was developed jointly by **Mozn Jamous** and **Shahd Bureghsh** as 
 
 ## 📬 Contact
 
-- **Email:** asaierafi@clinlab.ai
+- **Email:** moznjamous9@gmail.com
 - **GitHub:** [@Mozn-jamous](https://github.com/Mozn-jamous)
 - **LinkedIn:** [Mozn Jamous](https://www.linkedin.com/in/mozn-jamous)
 

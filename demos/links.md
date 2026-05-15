@@ -35,4 +35,4 @@ External testers can join the TestFlight beta once the App Store Connect account
 
 ## How to request access
 
-For early access to TestFlight, an APK build, or a synchronous demo over video call, please contact me at **asaierafi@clinlab.ai** with a brief intro about your interest (employer / grant reviewer / collaborator).
+For early access to TestFlight, an APK build, or a synchronous demo over video call, please contact me at **moznjamous9@gmail.com** with a brief intro about your interest (employer / grant reviewer / collaborator).

@@ -15,7 +15,7 @@ If you discover a security vulnerability in BloomBelly, please **do not open a p
 
 Instead, report it privately by emailing:
 
-📧 **asaierafi@clinlab.ai**
+📧 **moznjamous9@gmail.com**
 
 Subject line: `[SECURITY] BloomBelly — Brief description`
 

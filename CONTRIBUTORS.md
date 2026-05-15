@@ -7,7 +7,7 @@ BloomBelly is a graduation project submitted to the **College of Informatics Eng
 ### Mozn Jamous
 - **Role:** Co-founder, Co-developer
 - **GitHub:** [@Mozn-jamous](https://github.com/Mozn-jamous)
-- **Email:** asaierafi@clinlab.ai
+- **Email:** moznjamous9@gmail.com
 - **LinkedIn:** [Mozn Jamous](https://www.linkedin.com/in/mozn-jamous)
 - **Primary contributions:** Backend (Flask) architecture, AI orchestration (Gemini integration, LoRA fine-tuning, Random Forest nutrition classifier), Supabase schema and RLS policies, system design, technical documentation, thesis writing.
 

@@ -119,7 +119,7 @@ def header_band(canvas_obj, doc):
     canvas_obj.setFillColor(GREY)
     canvas_obj.setFont("Helvetica-Oblique", 7)
     canvas_obj.drawCentredString(width / 2, 10*mm,
-        "github.com/Mozn-jamous/bloombelly-showcase · asaierafi@clinlab.ai · linkedin.com/in/mozn-jamous")
+        "github.com/Mozn-jamous/bloombelly-showcase · moznjamous9@gmail.com · linkedin.com/in/mozn-jamous")
     canvas_obj.restoreState()
 
 

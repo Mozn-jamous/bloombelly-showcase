@@ -19,7 +19,7 @@ This folder contains shareable assets for journalists, grant reviewers, accelera
 ## Press Contact
 
 **Mozn Jamous**
-asaierafi@clinlab.ai
+moznjamous9@gmail.com
 linkedin.com/in/mozn-jamous
 
 ## Regenerating the PDF

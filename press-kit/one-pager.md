@@ -69,7 +69,7 @@ Graduation thesis (2026), College of Informatics Engineering, **Al-Sham Private 
 ## 📞 Contact
 
 **Mozn Jamous**
-asaierafi@clinlab.ai
+moznjamous9@gmail.com
 linkedin.com/in/mozn-jamous
 
 ---
