@@ -1,0 +1,104 @@
+cff-version: 1.2.0
+message: "If you reference this project or its methodology in academic work, please cite it as below."
+type: software
+title: "BloomBelly: An AI-Assisted Arabic-First Maternal and Child Health Platform"
+abstract: >
+  BloomBelly is a Flutter-based mobile health platform combining AI-driven medical
+  image analysis, a fine-tuned conversational agent, and an interpretable nutrition
+  classifier to support Arabic-speaking pregnant women, second-time mothers, and
+  their partners. The system orchestrates three AI components — Google Gemini for
+  medical image interpretation, a LoRA-tuned transformer for clinical Q&A, and a
+  Random Forest classifier for stage-appropriate nutrition guidance — behind a
+  Python Flask backend with Supabase persistence, served through a Provider-based
+  MVVM Flutter client. The work was developed as a graduation thesis at the
+  College of Informatics Engineering, Al-Sham Private University, Damascus, Syria.
+
+authors:
+  - family-names: "Jamous"
+    given-names: "Mozn"
+    affiliation: "Al-Sham Private University, College of Informatics Engineering"
+  - family-names: "Bureghsh"
+    given-names: "Shahd"
+    affiliation: "Al-Sham Private University, College of Informatics Engineering"
+
+contact:
+  - email: "asaierafi@clinlab.ai"
+    family-names: "Jamous"
+    given-names: "Mozn"
+
+repository-code: "https://github.com/Mozn-jamous/bloombelly-showcase"
+url: "https://github.com/Mozn-jamous/bloombelly-showcase"
+
+keywords:
+  - maternal health
+  - digital health
+  - mHealth
+  - prenatal care
+  - Arabic NLP
+  - LoRA fine-tuning
+  - medical image analysis
+  - Gemini
+  - clinical decision support
+  - Flutter
+  - Supabase
+  - MENA digital health
+
+date-released: 2026-09-12
+year: 2026
+
+license: "LicenseRef-Proprietary"
+
+references:
+  - type: article
+    title: "Fetal Movement Counting Improved Identification of Fetal Growth Restriction and Perinatal Outcomes"
+    authors:
+      - family-names: "Saastad"
+        given-names: "E."
+      - family-names: "Winje"
+        given-names: "B. A."
+      - family-names: "Stray-Pedersen"
+        given-names: "B."
+      - family-names: "Frøen"
+        given-names: "J. F."
+    journal: "PLOS ONE"
+    volume: "6"
+    issue: "12"
+    year: 2011
+    doi: "10.1371/journal.pone.0028482"
+
+  - type: article
+    title: "Maternal perception of fetal movements: Views, knowledge and practices of women and health providers in a low-resource setting"
+    journal: "PLOS Global Public Health"
+    year: 2023
+
+  - type: article
+    title: "Association between perceived partner support and lifestyle in mother–father dyads expecting a first child"
+    journal: "Frontiers in Public Health"
+    year: 2022
+
+  - type: report
+    title: "Recommended Amount of Sleep for Pediatric Populations"
+    institution: "American Academy of Sleep Medicine"
+    year: 2016
+
+  - type: report
+    title: "Maternal Nutrition Guidelines"
+    institution: "World Health Organization"
+    year: 2016
+
+advisors:
+  - family-names: "Al-Shalabi"
+    given-names: "Afaf"
+    affiliation: "Al-Sham Private University"
+    role: "Principal Supervisor"
+
+  - family-names: "Abdul Qader"
+    given-names: "Rahaf"
+    affiliation: "Al-Sham Private University"
+    role: "Technical Co-supervisor"
+
+institution:
+  name: "Al-Sham Private University"
+  department: "College of Informatics Engineering"
+  city: "Damascus"
+  country: "Syria"

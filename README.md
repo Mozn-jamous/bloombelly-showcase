@@ -271,6 +271,28 @@ In the meantime, see [screenshots/](screenshots/) for visual previews.
 - [ ] V2.2: Direct clinic integration
 - [ ] V2.3: Anonymized data export for research
 
+See [TIMELINE.md](TIMELINE.md) for the full development history and post-graduation roadmap.
+
+---
+
+## 📚 Project Documentation
+
+This repository contains a complete documentation set:
+
+| Document | Audience | Purpose |
+|---|---|---|
+| [Architecture](docs/architecture.md) | Engineers | System design, AI pipeline, sequence diagrams |
+| [Tech Stack](docs/tech-stack.md) | Engineers | Full technology breakdown with rationale |
+| [Engineering Decisions (ADRs)](docs/ENGINEERING-DECISIONS.md) | Senior Engineers | 10 documented architectural decisions |
+| [Research References](docs/RESEARCH-REFERENCES.md) | Academic Reviewers | Full bibliography (17+ sources) |
+| [Case Study](case-study.md) | All | Problem, approach, outcome, lessons learned |
+| [Impact & Theory of Change](IMPACT.md) | Grant Reviewers | SDG alignment, outcome metrics, target programs |
+| [Business Model](BUSINESS-MODEL.md) | Accelerators / Investors | Revenue streams, market, unit economics |
+| [Timeline](TIMELINE.md) | All | Project milestones and post-graduation plan |
+| [Contributors](CONTRIBUTORS.md) | All | Authors, supervisors, stakeholders |
+| [Security Policy](SECURITY.md) | Engineers / Auditors | Disclosure process, security practices |
+| [Citation (CFF)](CITATION.cff) | Researchers | Machine-readable academic citation |
+
 ---
 
 ## 👥 Team Contributions
